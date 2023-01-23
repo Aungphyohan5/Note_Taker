@@ -34,7 +34,7 @@ In this project, I developed an application that makes it simple for users to ab
 
 Repository URL  - https://github.com/Aungphyohan5/Note_Taker
 
-Deployed URL -
+Deployed URL -    https://sheltered-dawn-92199.herokuapp.com/
 
 
 ## Screenshot
