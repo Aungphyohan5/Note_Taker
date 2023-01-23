@@ -1,13 +1,15 @@
-const notes = require('express').Router();
-const uuid = require('./helpers/uuid.js');
+const express = require('express')
+const uuid = require('../helpers/uuid.js');
 const {
     readFromFile,
     readAndAppend,
     writeToFile,
 } = require('../helpers/fsUtils');
 
+const app = express()
+
 // route for notes
-notes.get('/api/notes', (req, res) => {
+app.get('/', (req, res) => {
     console.info(`${req.method} request received for note`);
     readFromFile('./db/db.json').then((data) => res.send(JSON.parse(data)));
 });
@@ -16,7 +18,7 @@ notes.get('/api/notes', (req, res) => {
 
 
 // delete route for notes
-notes.delete('/api/notes/:id', (req, res) => {
+app.delete('/:id', (req, res) => {
     console.info(`${req.method} request received for note`);
     const noteId = req.params.id;
     readFromFile('./db/db.json').then((data) => JSON.parse(data))
@@ -28,7 +30,7 @@ notes.delete('/api/notes/:id', (req, res) => {
         })
 })
 
-notes.post('/api/notes', (req, res) => {
+app.post('/', (req, res) => {
     // check wther received the post request or not
     console.info(`${req.method} request has been received`)
     //  to get the new note data from body
@@ -41,8 +43,6 @@ notes.post('/api/notes', (req, res) => {
             id: uuid(),
 
         };
-
-
 
         readAndAppend(newNote, './db/db.json');
 
@@ -58,4 +58,4 @@ notes.post('/api/notes', (req, res) => {
     }
 });
 
-module.exports = notes;
+module.exports = app;
