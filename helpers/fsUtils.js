@@ -23,6 +23,7 @@ const writeToFile = (destination, content) =>
  *  @returns {void} Nothing
  */
 
+
 const readAndAppend = (content, file) => {
     fs.readFile(file, 'utf8', (err, data) => {
         if (err) {

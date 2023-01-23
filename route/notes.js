@@ -31,6 +31,8 @@ app.delete('/:id', (req, res) => {
         })
 })
 
+
+// post route to add new note
 app.post('/', (req, res) => {
     // check wther received the post request or not
     console.info(`${req.method} request has been received`)
@@ -58,5 +60,6 @@ app.post('/', (req, res) => {
         res.status(500).json('Error in posting note');
     }
 });
+
 
 module.exports = app;
