@@ -8,7 +8,8 @@ const {
 
 const app = express()
 
-// route for notes
+
+// route for notes (get request)
 app.get('/', (req, res) => {
     console.info(`${req.method} request received for note`);
     readFromFile('./db/db.json').then((data) => res.send(JSON.parse(data)));
@@ -17,7 +18,7 @@ app.get('/', (req, res) => {
 
 
 
-// delete route for notes
+// delete route for notes (delete request)
 app.delete('/:id', (req, res) => {
     console.info(`${req.method} request received for note`);
     const noteId = req.params.id;
