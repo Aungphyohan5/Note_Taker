@@ -34,6 +34,8 @@ In this project, I developed an application that makes it simple for users to ab
 
 Repository URL  - https://github.com/Aungphyohan5/Note_Taker
 
+Deployed URL -
+
 
 ## Screenshot
 
@@ -56,7 +58,7 @@ https://user-images.githubusercontent.com/112873819/214058188-9e718b24-0701-4adb
 
 
 ```bash
-  node index.js 
+  node server.js 
 ```
 
 
